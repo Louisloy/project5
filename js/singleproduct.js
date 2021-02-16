@@ -6,6 +6,13 @@ xhr.open('GET', url);
 xhr.onload = function(){
     if(this.status == 200) {
       teddy = JSON.parse(this.response);
+      let colors = "";
+      teddy.colors.forEach(  (color) =>{
+
+        colors += `<option>${color}</option>`;
+
+
+      })
 
         let product="";
         product=`<div id="gallery" class="span3">
@@ -34,10 +41,7 @@ xhr.onload = function(){
                 <label class="control-label"><span>Color</span></label>
                 <div class="controls">
                   <select class="span2">
-                      <option>Black</option>
-                      <option>Red</option>
-                      <option>Blue</option>
-                      <option>Brown</option>
+                      ${colors}
                     </select>
                 </div>
               </div>
